@@ -8,7 +8,8 @@
 ## 文件说明
 * **snippet.js：** ws/xhttp 双传输，vless/trojan/ss 三协议，支持 `!txt + socks5 + http + https + sstp + turn + turns + auto` 功能，此 https/turns 非完全体。  
 * **worker.js：** ws/xhttp 双传输，vless/trojan/ss 三协议，支持 `!txt + socks5 + http + https + sstp + turn + turns + auto` 功能，此 https/turns 为完全体。  
-* **!txt+https.js：** ws/xhttp 双传输，vless/ss 双协议，支持 `!txt + https + auto` 功能，此 https 为完全体。  
+* **!txt+https+auto.js：** ws/xhttp 双传输，vless/ss 双协议，支持 `!txt + https + auto` 功能，此 https 为完全体。  
+* **!txt+auto.js：** ws/xhttp 双传输，vless/ss 双协议，支持 `!txt + auto` 功能，精简版，不含众多落地代理，仅 直连+proxyip 及其配套功能，冷启快，预期性能表现略好于其它三个。  
 
 _建议：ss 用 notls。_  
 _注1：ss 单 ws，无 xhttp。_  
@@ -25,7 +26,7 @@ _注3：代码验证基于 Pro计划 snippet，worker free。_
 6. **turn：** 见 [AK说明](https://t.me/Enkelte_notif/805)  
 7. **turns：** turn over tls，与 https 代理情况类似。  
 8. **global：** 协议代理（socks5等）默认回落模式，`?global=1` 时改用全局模式。  
-9. **auto：** `?auto=cm`：CM佬的自适应第三方 proxyip 服务，自动根据当前位置分配 proxyip，path > auto > n；`?auto=zj`：ZJ佬的自适应 cf 官方 proxyip 服务，自动根据当前位置分配 proxyip，特别地 colo=hkg 时自动分流到变量 n，若 n 无效（为空或含关键词 example），则回落到CM佬自适应服务，避开香港 IP 限制，若不想避开香港，可直接设置到常规 `fdip={proxyip}`；兜底：当未在客户端设置回落，且 n 无效（为空或含关键词 example），自动启用 `zj/cm` 兜底。  
+9. **auto：** ZJ佬的自适应 cf 官方 proxyip 服务，自动根据当前位置分配 proxyip，特别地 colo=hkg 时自动分流到 路径fdip > 变量n，避开香港 IP 限制，若不想避开香港，可直接设置到常规 `fdip={proxyip}`；兜底：当未在客户端设置回落/代理，且 n 无效（为空或含关键词 example），自动启用 auto 兜底。  
 
 **总结：** 这些功能解决的是CF节点的落地问题，助力实现**无限家宽全球落地**。  
 **注1：** TXT 内容格式以 `,` 分隔或换行或两者混用。作用逻辑：获取域名 TXT 记录内容，取其中某个 proxyip 或协议代理使用。  
@@ -53,8 +54,8 @@ _注3：代码验证基于 Pro计划 snippet，worker free。_
 8. **global：**  
 `/fdip={1234567}?global=1&ed=2560`  
 9. **auto：**  
-`/?auto=cm&ed=2560`  
-`/?auto=zj&ed=2560`  
+`/?auto=1&ed=2560`  
+`/fdip={proxy}?auto=1&ed=2560`  
 
 _注1：ed=2560 放在最后_  
 _注2：fdip 可以改为任意数字字母组合如 proxyip_  
