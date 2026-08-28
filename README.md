@@ -26,11 +26,11 @@ _注3：代码验证基于 Pro计划 snippet，worker free。_
 6. **turn：** 见 [AK说明](https://t.me/Enkelte_notif/805)  
 7. **turns：** turn over tls，与 https 代理情况类似。  
 8. **global：** 协议代理（socks5等）默认回落模式，`?global=1` 时改用全局模式。  
-9. **auto：** ZJ佬的自适应 cf 官方 proxyip 服务，自动根据当前位置分配 proxyip，特别地 colo=hkg 时自动分流到 路径fdip > 变量n，避开香港 IP 限制，若不想避开香港，可直接设置到常规 `fdip={proxyip}`；兜底：当未在客户端设置回落/代理，且 n 无效（为空或含关键词 example），自动启用 auto 兜底。  
+9. **auto：** ZJ佬的自适应 cf 官方 proxyip 服务，自动根据当前位置分配对应目标机房 proxyip。`auto=1`：按 colo 分流（hkg 走 p→n→zj，其它强制 zj）；`auto=2`：全部强制走 zj；无 auto 或其它值：走 p→n→zj。  
 
 **总结：** 这些功能解决的是CF节点的落地问题，助力实现**无限家宽全球落地**。  
 **注1：** TXT 内容格式以 `,` 分隔或换行或两者混用。作用逻辑：获取域名 TXT 记录内容，取其中某个 proxyip 或协议代理使用。  
-**注2：** “cf官方反代”指可访问cf cdn内容的cf官方IP，落地跟随优选IP位置。  
+**注2：** “cf官方反代”指可访问cf cdn内容的cf官方IP，自身位置跟随优选IP位置（未固定放置的话），目标CDN机房固定，即指定官方proxyip固定与某一个CDN机房通讯。  
 
 ### 路径示例
 1. **!txt：**  
