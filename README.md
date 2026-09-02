@@ -6,8 +6,8 @@
 
 ---
 ## 文件说明
-* **snippet.js：** ws/xhttp 双传输，vless/trojan/ss 三协议，支持 `!txt + socks5 + http + https + sstp + turn + turns + auto` 功能，此 https/turns 非完全体。  
-* **worker.js：** ws/xhttp 双传输，vless/ss 双协议，支持 `!txt + socks5 + http + https + sstp + turn + turns + auto` 功能，此 https/turns 为完全体。  
+* **snippet.js：** ws/xhttp 双传输，vless/ss 双协议，支持 `!txt + socks5 + http + https + sstp + turn + turns + auto` 功能，此 https/turns 非完全体。  
+* **worker.js：** ws/xhttp 双传输，vless/trojan/ss 双协议，支持 `!txt + socks5 + http + https + sstp + turn + turns + auto` 功能，此 https/turns 为完全体。  
 * **!txt+https+auto.js：** ws/xhttp 双传输，vless/ss 双协议，支持 `!txt + https + auto` 功能，此 https 为完全体。  
 * **!txt+auto.js：** ws/xhttp 双传输，vless/ss 双协议，支持 `!txt + auto` 功能，精简版，不含众多落地代理，仅 直连+proxyip 及其配套功能，冷启快，预期性能表现略好于其它三个。  
 
